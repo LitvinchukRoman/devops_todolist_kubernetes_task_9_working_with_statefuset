@@ -18,7 +18,10 @@ spec:
         image: ikulyk404/todoapp:3.0.0
         env:
         - name: DB_HOST
-          value: mysql-0.mysql.mysql.svc.cluster.local
+          valueFrom:
+            secretKeyRef:
+              name: app-secret
+              key: HOST
         - name: DB_USER
           valueFrom:
             secretKeyRef:
